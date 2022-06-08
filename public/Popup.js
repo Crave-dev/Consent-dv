@@ -20,6 +20,7 @@ function ConsentBody() {
         <ConsetLabel/>
         <br/>
         <ConsetContent/>
+        {/* <ConsetContentMobile/> */}
         <InformationButton/>
         <AcceptButton/>
     </p>)
@@ -36,33 +37,22 @@ function ConsetLabel() {
 }
 
 function ConsetContent() {
-    const mediaMatch = window.matchMedia('(max-width: 480px)')
-    const [matches, setMatches] = React.useState(mediaMatch.matches);
-    const [] = React.useState(false)
-
-    React.useEffect(() => {
-        const handler = e => setMatches(e.matches);
-        mediaMatch.addListener(handler);
-        return () => mediaMatch.removeListener(handler);
-    })
-
-    return (matches ? <ConsetContentMobile /> 
-            : <span className="text-consent" id="text-consent">ไทยทราเวลเซ็นเตอร์ พัฒนาแพลตฟอร์มของเราอยู่ตลอดเวลาเพื่อมอบประสบการณ์การใช้เว็บไซต์ให้ดียิ่งขึ้น และส่วนสำคัญที่เราใช้พัฒนาระบบก็คือข้อมูลต่างๆ ของคุณ ในขณะเดียวกันเราให้ความสำคัญต่อความเป็นส่วนตัว และจะทำงานอย่างดีที่สุดเพื่อรักษาความลับ และควบคุมข้อมูลส่วนบุคคลของคุณให้ปลอดภัย</span>
-            )
+    return (<div className="text-consent" id="text-consent">ไทยทราเวลเซ็นเตอร์ พัฒนาแพลตฟอร์มของเราอยู่ตลอดเวลาเพื่อมอบประสบการณ์การใช้เว็บไซต์ให้ดียิ่งขึ้น และส่วนสำคัญที่เราใช้พัฒนาระบบก็คือข้อมูลต่างๆ ของคุณ ในขณะเดียวกันเราให้ความสำคัญต่อความเป็นส่วนตัว และจะทำงานอย่างดีที่สุดเพื่อรักษาความลับ และควบคุมข้อมูลส่วนบุคคลของคุณให้ปลอดภัย</div>)
 }
 
-function ConsetContentMobile() {
-    return (
-        <span className="text-consent-mobile">
-            <React.Fragment>
-                ไทยทราเวลเซ็นเตอร์ พัฒนาแพลตฟอร์มของเราอยู่ตลอดเวลาเพื่อมอบประสบการณ์การใช้เว็บไซต์ให้ดียิ่งขึ้น และส่วนสำคัญที่เราใช้พัฒนา...
-                <span style={{ cursor: 'pointer'}} target="_blank"><b>อ่านต่อ</b></span>
-            </React.Fragment>
-        </span>)
-}
+// function ConsetContentMobile() {
+
+//     return (
+//         <span className="text-consent-mobile">
+//             <React.Fragment>
+//                 ไทยทราเวลเซ็นเตอร์ พัฒนาแพลตฟอร์มของเราอยู่ตลอดเวลาเพื่อมอบประสบการณ์การใช้เว็บไซต์ให้ดียิ่งขึ้น และส่วนสำคัญที่เราใช้พัฒนา...
+//                 <span style={{ cursor: 'pointer'}} target="_blank"><b>อ่านต่อ</b></span>
+//             </React.Fragment>
+//         </span>)
+// }
 
 function InformationButton() {
-    return (<a href="https://www.thaitravelcenter.com/termcondition/" target="_blank" style={{ textDecoration: 'none', color: 'inherit'}}>
+    return (<a href="https://www.thaitravelcenter.com/termcondition/" target="_blank" style={{ textDecoration: 'none', color: 'inherit' }}>
         <span className="btn-ac">ดูรายละเอียด</span>
     </a>)
 }
